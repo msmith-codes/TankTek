@@ -1,12 +1,36 @@
-CMakeLists.txt.user
+############################
+#  CMAKE SPECIFIC IGNORES  #
+############################
+CMakeFiles/
+CMakeScripts/
+_deps/
 CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
-_deps
 CMakeUserPresets.json
+
+############################
+#  MAKE SPECIFIC IGNORES  #
+############################
+Makefile
+
+##############################
+#  PROJECT SPECIFIC IGNORES  #
+##############################
+bin/
+build/
+
+#############################
+#  EDITOR SPECIFIC IGNORES  #
+#############################
+.vscode/
+.idea/
+
+#########################
+#  OS SPECIFIC IGNORES  #
+#########################
+.DS_Store
+Thumbs.db
+desktop.ini
