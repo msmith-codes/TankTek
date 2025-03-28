@@ -1,3 +1,4 @@
+#include "TankTek/lang/tkshader/ShaderDSL.hpp"
 #include <TankTek/render/ShaderProgram.hpp>
 #include <TankTek/utils/Logger.hpp>
 
@@ -11,7 +12,16 @@ namespace TankTek
 {
     ShaderProgram::ShaderProgram(const std::string& path)
     {
-        ShaderSource source = this->readShader(path);
+        std::ifstream file(path);
+        std::stringstream ss;
+        std::string line;
+        while(getline(file, line)) {
+            ss << line << '\n';
+        }
+        std::string tkSrc = ss.str();
+        std::string src = ShaderDLS::compileTkShader(tkSrc);
+
+        ShaderSource source = this->readShader(src);
 
         this->vertexId = this->compileShader(GL_VERTEX_SHADER, source.vertex);
         this->fragmentId = this->compileShader(GL_FRAGMENT_SHADER, source.fragment);
@@ -26,13 +36,13 @@ namespace TankTek
         glDeleteProgram(this->programId);
     }
 
-    ShaderSource ShaderProgram::readShader(const std::string& path)
+    ShaderSource ShaderProgram::readShader(const std::string& src)
     {
-        std::ifstream file(path);
+        std::istringstream stream(src);
         std::stringstream ss[2];
         std::string line;
         int type = -1;
-        while(getline(file, line)) {
+        while(getline(stream, line)) {
             if(line.find("#type") != std::string::npos) {
                 if(line.find("vertex") != std::string::npos) {
                     type = 0;

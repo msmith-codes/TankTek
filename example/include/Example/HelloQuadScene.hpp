@@ -6,7 +6,7 @@
 class HelloQuadScene : public TankTek::Scene
 {
     private:
-        TankTek::RawModel* triangle;
+        TankTek::RawModel* quad;
         TankTek::ShaderProgram* shader;
     public:
         HelloQuadScene();

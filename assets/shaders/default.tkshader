@@ -1,0 +1,11 @@
+
+void vertex()
+{
+    fColor = COLOR; 
+    gl_Position = vec4(VERTEX, 1.0);
+}
+
+void fragment()
+{
+    COLOR = fColor;
+}

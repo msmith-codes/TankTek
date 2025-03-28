@@ -2,15 +2,11 @@
 #define TT_ShaderProgram_HPP
 
 #include <string>
+#include <TankTek/utils/ShaderSource.hpp>
 
 namespace TankTek
 {
-    struct ShaderSource
-    {
-        std::string vertex;
-        std::string fragment;
-    };
-
+    
     class ShaderProgram
     {
         private:

@@ -1,6 +1,8 @@
+#include "TankTek/utils/VaoUtils.hpp"
 #include <TankTek/render/ModelLoader.hpp>
 
 #include <glad/glad.h>
+#include <vector>
 
 namespace TankTek
 {
@@ -45,7 +47,7 @@ namespace TankTek
         glGenVertexArrays(1, &vaoId);   
         this->vaos.push_back(vaoId);
 
-        glBindVertexArray(vaoId);
+        VaoUtils::bind(vaoId);
         return vaoId;
     }
 
@@ -73,6 +75,6 @@ namespace TankTek
 
     void ModelLoader::unbindVao()
     {
-        glBindVertexArray(0);
+        VaoUtils::unbind();
     }
 }

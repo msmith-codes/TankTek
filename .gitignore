@@ -11,10 +11,15 @@ compile_commands.json
 CTestTestfile.cmake
 CMakeUserPresets.json
 
-############################
+###########################
 #  MAKE SPECIFIC IGNORES  #
-############################
+###########################
 Makefile
+
+#############################
+#  CLANGD SPECIFIC IGNORES  #
+#############################
+.cache/
 
 ##############################
 #  PROJECT SPECIFIC IGNORES  #
