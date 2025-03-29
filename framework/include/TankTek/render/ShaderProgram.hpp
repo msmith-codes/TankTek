@@ -3,6 +3,7 @@
 
 #include <string>
 #include <TankTek/utils/ShaderSource.hpp>
+#include <TankTek/math/Math.hpp>
 
 namespace TankTek
 {
@@ -23,6 +24,8 @@ namespace TankTek
         public:
             void bind();
             void unbind();
+        public:
+            void setMat4f(const std::string& name, const Mat4x4f& matrix); 
 
     };
 };

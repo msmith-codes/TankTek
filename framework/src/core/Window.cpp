@@ -171,4 +171,35 @@ namespace TankTek
             glfwSwapInterval(vsync ? 1 : 0);
         }
     }
+
+    // -- Static Getters -- //
+    unsigned int Window::getWidth()
+    {
+        return Window::getInstance().width;
+    }
+
+    unsigned int Window::getHeight()
+    {
+        return Window::getInstance().height;
+    }
+
+    const std::string& Window::getTitle()
+    {
+        return Window::getInstance().title;
+    }
+
+    bool Window::isResizable()
+    {
+        return Window::getInstance().resizable;
+    }
+
+    bool Window::isMaximized()
+    {
+        return Window::getInstance().maximized;
+    }
+
+    bool Window::isVSync()
+    {
+        return Window::getInstance().vsync;
+    }
 }

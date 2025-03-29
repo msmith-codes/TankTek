@@ -12,8 +12,9 @@ endif()
 file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 add_library(${PROJECT_NAME} STATIC ${SOURCES})
 
-target_link_libraries(${PROJECT_NAME} glfw glad)
+target_link_libraries(${PROJECT_NAME} glfw glad glm::glm)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 
 

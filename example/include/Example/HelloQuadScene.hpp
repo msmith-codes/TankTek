@@ -8,6 +8,8 @@ class HelloQuadScene : public TankTek::Scene
     private:
         TankTek::RawModel* quad;
         TankTek::ShaderProgram* shader;
+    private:
+        float z;
     public:
         HelloQuadScene();
         ~HelloQuadScene();

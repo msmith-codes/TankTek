@@ -1,10 +1,11 @@
-#include "TankTek/lang/tkshader/ShaderDSL.hpp"
 #include <TankTek/render/ShaderProgram.hpp>
 #include <TankTek/utils/Logger.hpp>
 
 #include <fstream>
 #include <sstream>
 #include <string>
+
+#include <glm/gtc/type_ptr.hpp>
 
 #include <glad/glad.h>
 
@@ -18,8 +19,7 @@ namespace TankTek
         while(getline(file, line)) {
             ss << line << '\n';
         }
-        std::string tkSrc = ss.str();
-        std::string src = ShaderDLS::compileTkShader(tkSrc);
+        std::string src = ss.str();
 
         ShaderSource source = this->readShader(src);
 
@@ -116,5 +116,11 @@ namespace TankTek
     void ShaderProgram::unbind()
     {
         glUseProgram(0);
+    }
+
+    void ShaderProgram::setMat4f(const std::string& name, const Mat4x4f& matrix)
+    {
+        unsigned int location = glGetUniformLocation(this->programId, name.c_str());
+        glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 }

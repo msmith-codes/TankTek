@@ -1,10 +1,14 @@
 #ifndef TT_Scene_HPP
 #define TT_Scene_HPP
 
+#include <TankTek/render/Camera3D.hpp>
+
 namespace TankTek
 {
     class Scene
     {
+        protected:
+            TankTek::Camera3D* camera;
         public:
             Scene();
             virtual ~Scene();

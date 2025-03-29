@@ -9,7 +9,8 @@ namespace TankTek
 
     Scene::~Scene()
     {
-        
+        delete this->camera;
+        this->camera = nullptr;
     }
 
     void Scene::ready()

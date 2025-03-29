@@ -35,6 +35,13 @@ namespace TankTek
             static void setResizable(bool resizable);
             static void setMaximized(bool maximized);
             static void setVSync(bool vsync);
+        public: // -- Static Getters -- //
+            static unsigned int getWidth();
+            static unsigned int getHeight();
+            static const std::string& getTitle();
+            static bool isResizable();
+            static bool isMaximized();
+            static bool isVSync();
 
     };
 }
