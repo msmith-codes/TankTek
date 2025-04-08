@@ -1,4 +1,5 @@
 #include "TankTek/core/Application.hpp"
+#include "TankTek/input/MouseListener.hpp"
 #include <TankTek/core/GameLoop.hpp>
 #include <TankTek/core/Window.hpp>
 #include <TankTek/core/Scene.hpp>
@@ -62,6 +63,7 @@ namespace TankTek
             }
 
             TankTek::Window::swapBuffers();
+            TankTek::MouseListener::endFrame();
         }
     }
 
