@@ -25,6 +25,16 @@ class ExampleApp : public TankTek::Application
         }
         
     protected:
+        void loadAssets() override
+        {
+
+        }
+
+        void registerVoxels() override
+        {
+            
+        }
+
         void onReady() override
         {
             TankTek::RenderUtils::setClearColor(0.1f, 0.1f, 0.1f);

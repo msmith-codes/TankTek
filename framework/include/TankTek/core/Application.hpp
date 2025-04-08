@@ -14,6 +14,8 @@ namespace TankTek
             void ready();
             void update(float dt);
         protected:
+            virtual void loadAssets() = 0;
+            virtual void registerVoxels() = 0;
             virtual void onReady() = 0;
             virtual void onUpdate(float dt) = 0;
     };
