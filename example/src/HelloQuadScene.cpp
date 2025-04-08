@@ -42,7 +42,12 @@ void HelloQuadScene::onReady()
 
     this->z = 0.0f;
     this->camera = new TankTek::Camera3D(TankTek::Vec3f(0.0f, 0.0f, this->z));
-    this->camera->setPerspective(TankTek::Math::toRadians(45.0f), (float)TankTek::Window::getWidth() / (float)TankTek::Window::getHeight(), 0.1f, 100.0f);
+    this->camera->setPerspective(
+            TankTek::Math::toRadians(45.0f), 
+            (float)TankTek::Window::getWidth() / (float)TankTek::Window::getHeight(), 
+            0.1f, 
+            100.0f
+    );
 
     this->quad = TankTek::ModelLoader::loadToVao(vertexArray, indexArray);
     this->quad->storeData(1, 4, colorArray);

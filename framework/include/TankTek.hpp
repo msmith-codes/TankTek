@@ -6,6 +6,8 @@
 #include "TankTek/core/Scene.hpp"
 #include "TankTek/core/Window.hpp"
 
+#include "TankTek/input/MouseListener.hpp"
+
 #include "TankTek/math/Math.hpp"
 
 #include "TankTek/render/Camera3D.hpp"

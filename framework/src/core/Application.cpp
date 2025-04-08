@@ -20,8 +20,16 @@ namespace TankTek
             return;
         }
 
-        this->onReady();
+        TankTek::GameLoop::run(this);
+    }
 
-        TankTek::GameLoop::run();
+    void Application::ready()
+    {
+        this->onReady();
+    }
+
+    void Application::update(float dt)
+    {
+        this->onUpdate(dt);
     }
 };

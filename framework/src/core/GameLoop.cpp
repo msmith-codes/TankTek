@@ -1,3 +1,4 @@
+#include "TankTek/core/Application.hpp"
 #include <TankTek/core/GameLoop.hpp>
 #include <TankTek/core/Window.hpp>
 #include <TankTek/core/Scene.hpp>
@@ -23,13 +24,18 @@ namespace TankTek
     // -- Destructor -- //
     GameLoop::~GameLoop()
     {
-        
+        delete this->scene;
+        this->scene = nullptr;
     }
 
     // -- Static Methods -- //
-    void GameLoop::run()
+    void GameLoop::run(Application* app)
     {
         GameLoop& instance = GameLoop::getInstance();
+            
+        instance.app = app;
+
+        instance.app->ready();
 
         if(instance.scene) {
             instance.scene->ready();
@@ -48,6 +54,8 @@ namespace TankTek
                 instance.scene->update(deltaTime);
             }
 
+            instance.app->update(deltaTime);
+
             TankTek::RenderUtils::clearScreen();
             if(instance.scene) {
                 instance.scene->render();
@@ -57,16 +65,16 @@ namespace TankTek
         }
     }
 
-    void GameLoop::setDefaultScene(std::unique_ptr<Scene> scene)
+    void GameLoop::setDefaultScene(Scene* scene)
     {
         GameLoop& instance = GameLoop::getInstance();
-        instance.scene = std::move(scene);
+        instance.scene = scene;
     }
 
-    void GameLoop::setScene(std::unique_ptr<Scene> scene)
+    void GameLoop::setScene(Scene* scene)
     {
         GameLoop& instance = GameLoop::getInstance();
-        instance.scene = std::move(scene);
+        instance.scene = scene;
         instance.scene->ready();
     }
 };

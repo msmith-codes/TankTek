@@ -1,9 +1,8 @@
 #ifndef TT_GameLoop_HPP
 #define TT_GameLoop_HPP
 
+#include "TankTek/core/Application.hpp"
 #include <TankTek/core/Scene.hpp>
-
-#include <memory>
 
 namespace TankTek
 {
@@ -13,15 +12,16 @@ namespace TankTek
             static GameLoop& getInstance();
         private: // -- Field Variables -- //
         private: // -- Utility Variables -- //
-            std::unique_ptr<Scene> scene;
+            Scene* scene;
+            Application* app;
         private: // -- Constructor -- //
             GameLoop(); 
         public: // -- Destructor -- //
             ~GameLoop();
         public: // -- Static Methods -- //
-            static void run();
-            static void setDefaultScene(std::unique_ptr<Scene> scene);
-            static void setScene(std::unique_ptr<Scene> scene);
+            static void run(Application* app);
+            static void setDefaultScene(Scene* scene);
+            static void setScene(Scene* scene);
     };
 };
 

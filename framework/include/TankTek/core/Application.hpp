@@ -10,8 +10,12 @@ namespace TankTek
             virtual ~Application();
         public:
             void run();
+        public:
+            void ready();
+            void update(float dt);
         protected:
             virtual void onReady() = 0;
+            virtual void onUpdate(float dt) = 0;
     };
 
     // Defined in client.

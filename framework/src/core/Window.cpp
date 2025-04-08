@@ -1,3 +1,4 @@
+#include "TankTek/input/MouseListener.hpp"
 #include <TankTek/core/Window.hpp>
 #include <TankTek/core/Application.hpp>
 #include <TankTek/utils/Logger.hpp>
@@ -76,6 +77,11 @@ namespace TankTek
                 glfwSetWindowPos(instance.windowPtr, xpos, ypos);
             }
         }
+        
+        // Set the callbacks.
+        glfwSetCursorPosCallback(instance.windowPtr, MouseListener::mousePosCallback);
+        glfwSetMouseButtonCallback(instance.windowPtr, MouseListener::mouseButtonCallback);
+        glfwSetScrollCallback(instance.windowPtr, MouseListener::mouseScrollCallback);
 
         // Make the window's context current
         glfwMakeContextCurrent(instance.windowPtr);
