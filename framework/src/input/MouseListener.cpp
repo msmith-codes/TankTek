@@ -76,7 +76,7 @@ namespace TankTek
         instance.lastY = instance.yPos;
     }
 
-    bool MouseListener::isButtonPressed(MouseButton button)
+    bool MouseListener::isPressed(MouseButton button)
     {
         MouseListener& instance = MouseListener::getInstance();
         int btn = static_cast<int>(button);
@@ -86,7 +86,7 @@ namespace TankTek
         return false;
     }
 
-    bool MouseListener::isButtonJustPressed(MouseButton button)
+    bool MouseListener::isJustPressed(MouseButton button)
     {
         MouseListener& instance = MouseListener::getInstance();
         int btn = static_cast<int>(button);

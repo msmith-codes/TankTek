@@ -1,3 +1,4 @@
+#include "TankTek/input/KeyListener.hpp"
 #include "TankTek/input/MouseListener.hpp"
 #include <TankTek/core/Window.hpp>
 #include <TankTek/core/Application.hpp>
@@ -82,6 +83,7 @@ namespace TankTek
         glfwSetCursorPosCallback(instance.windowPtr, MouseListener::mousePosCallback);
         glfwSetMouseButtonCallback(instance.windowPtr, MouseListener::mouseButtonCallback);
         glfwSetScrollCallback(instance.windowPtr, MouseListener::mouseScrollCallback);
+        glfwSetKeyCallback(instance.windowPtr, KeyListener::keyCallback);
 
         // Make the window's context current
         glfwMakeContextCurrent(instance.windowPtr);

@@ -37,8 +37,8 @@ namespace TankTek
             static void mouseScrollCallback(GLFWwindow* windowPtr, double xOffset, double yOffset);
         public: // -- Static Utilities -- //
             static void endFrame();
-            static bool isButtonPressed(MouseButton button);
-            static bool isButtonJustPressed(MouseButton button);
+            static bool isPressed(MouseButton button);
+            static bool isJustPressed(MouseButton button);
         public: // -- Static Getters -- //
             static float getX();
             static float getY();

@@ -1,3 +1,4 @@
+#include "TankTek/input/KeyListener.hpp"
 #include "TankTek/input/MouseListener.hpp"
 #include "TankTek/math/Math.hpp"
 #include "TankTek/utils/Logger.hpp"
@@ -43,10 +44,14 @@ class ExampleApp : public TankTek::Application
 
         void onUpdate(float dt) override
         {
-            if(TankTek::MouseListener::isButtonJustPressed(TankTek::MouseButton::LEFT)) {
+            if(TankTek::MouseListener::isJustPressed(TankTek::MouseButton::LEFT)) {
                 TankTek::Vec2f pos = TankTek::Vec2f(TankTek::MouseListener::getX(), TankTek::MouseListener::getY());
                 std::string str = std::to_string(pos.x) + ", " + std::to_string(pos.y);
                 TankTek::Logger::info("Left click pressed: (" + str + ")");
+            }
+
+            if(TankTek::KeyListener::isJustPressed(32)) {
+                TankTek::Logger::info("Space pressed!");
             }
         }
 };
