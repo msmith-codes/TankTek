@@ -1,0 +1,36 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19
+  },
+  "configurePresets": [
+    {
+      "name": "windows",
+      "displayName": "Windows Build",
+      "description": "Target Windows",
+      "generator": "MinGW Makefiles",
+      "cacheVariables": {
+        "EE_PLATFORM_DEFINE": "TT_PLATFORM_WINDOWS"
+      }
+    },
+    {
+      "name": "linux",
+      "displayName": "Linux Build",
+      "description": "Target Linux",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "EE_PLATFORM_DEFINE": "TT_PLATFORM_LINUX"
+      }
+    },
+    {
+      "name": "macos",
+      "displayName": "macOS Build",
+      "description": "Target macOS",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "EE_PLATFORM_DEFINE": "TT_PLATFORM_MACOS"
+      }
+    }
+  ]
+}
